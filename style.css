@@ -1,0 +1,564 @@
+/* Designed By: Mohamed Ali 2023
+
+==================================
+======= Johnson Controls Arabia ==========
+==================================
+
+*/
+
+/* Main Fonts */
+
+@font-face {
+    font-family: "Maurea-BoldLf";
+    src: url("./fonts/Maurea-BoldLf.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Maurea-Light";
+    src: url("./fonts/Maurea-Light.otf") format("opentype");
+    font-weight: lighter;
+    font-style: normal;
+  }
+  
+  :root {
+    --first-color: #152EA9;
+    --second-color: #151515;
+    --third-color: #ffffff;
+  }
+  *,
+  ::after,
+  ::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+  }
+  ::selection {
+    background: var(--first-color);
+    color: var(--third-color);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Maurea-BoldLf", sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #fff;
+    outline: none;
+  }
+  *,
+  a,
+  div,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  html,
+  img,
+  li,
+  p,
+  span {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: geometricPrecision;
+  }
+  .container {
+    width: 100%;
+    padding-right: 24px;
+    padding-left: 24px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    max-width: 1440px;
+    margin: auto;
+  }
+  ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: var(--second-color);
+  }
+  
+  /* =========================
+      =========== NAVBAR =========
+      ============================ */
+  .navbar {
+    background: var(--third-color);
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+    top: 0;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+    padding: 10px 0;
+  }
+  .navbar.scrolled {
+    background-color: var(--third-color);
+    transition: background-color 200ms linear;
+    box-shadow: 0 5px 14px 0 rgb(0 0 0 / 8%);
+  }
+  .navbar.scrolled a {
+    color: var(--third-color);
+  }
+  .navbar a {
+    color: var(--third-color);
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav .logo {
+    width: 120px;
+    height: auto;
+  }
+  .nav .logo img {
+    width: 100%;
+    height: 100%;
+  }
+  .nav .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    position: relative;
+    gap: 30px;
+  }
+  .nav .info a {
+    font-size: 16px;
+    padding: 25px 0;
+    letter-spacing: 1px;
+    outline: none;
+    font-weight: 500;
+    color: var(--third-color);
+  }
+  .nav .info .lang {
+    margin-right: 20px;
+  }
+  .req {
+    background: var(--first-color);
+    color: var(--third-color);
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    border-color: transparent;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 40px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  .req:hover {
+    opacity: 0.9;
+  }
+  .navbar .info-mob {
+    display: none;
+  }
+  @media screen and (max-width: 767px) {
+    .navbar .req {
+      padding: 15px;
+    }
+    .navbar .info {
+      display: none;
+    }
+    .navbar .info-mob {
+      display: block;
+    }
+    .navbar .info-mob .toggle {
+      cursor: pointer;
+    }
+    .navbar .info-mob .toggle span {
+      width: 30px;
+      height: 2px;
+      background: var(--second-color);
+      display: block;
+      position: relative;
+    }
+    .navbar .info-mob .toggle span:nth-child(1) {
+      top: 10px;
+    }
+    .navbar .info-mob .toggle span:nth-child(3) {
+      top: -10px;
+    }
+  
+    .navbar .info-mob .info-more {
+      display: flex;
+      justify-content: flex-start;
+      align-items: baseline;
+      width: 100%;
+      background: var(--third-color);
+      position: absolute;
+      left: -100%;
+      top: 68px;
+      padding: 20px 20px;
+      z-index: 2;
+      transition: all 0.3s ease-in-out;
+      gap: 30px;
+    }
+    .navbar .info-mob .info-more.show {
+      left: 0px;
+    }
+    .navbar .info-mob .info-more.show .req {
+      background: var(--first-color);
+      color: var(--third-color);
+    }
+    .navbar .info-mob .info-more .lang a {
+      font-size: 22px;
+    }
+  }
+
+  /* ===========================
+    ======== HEADER =========
+    ============================ */
+  .webinar-header {
+    width: 100vw;
+    height: 100vh;
+    background: #F1F8FF;
+  }
+  .webinar-header .container {
+    padding-right: 0;
+    margin-right: 0;
+    padding-left: 0;
+  }
+  .webinar-header .header-divi {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    height: 100vh;
+  }
+  .webinar-header .header-divi .img,
+  .webinar-header .header-divi .img img {
+    width: 100%;
+    height: 100%;
+  }
+  .webinar-header .header-divi .img img {
+    object-fit: cover;
+  }
+  .webinar-header .header-divi .details h1 {
+    font-size: 54px;
+    padding-bottom: 15px;
+    color: var(--second-color);
+  }
+  .webinar-header .header-divi .details h3 {
+    font-size: 22px;
+    font-family: "Maurea-Light";
+    padding: 0px 0 15px;
+  }
+  .webinar-header .header-divi .details p {
+    font-size: 18px;
+    font-family: "Maurea-Light";
+  }
+  .webinar-header .header-divi .details .link {
+    margin-top: 40px;
+  }
+  .webinar-header .header-divi .details a {
+    background: var(--first-color);
+    color: var(--third-color);
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    border-color: transparent;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 40px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  .webinar-header .header-divi .details .event-time {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 10px 0 40px;
+  }
+  .webinar-header .header-divi .details .event-time .date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .webinar-header .header-divi .details .event-time img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  .webinar-header .header-divi .details .event-time p {
+    font-size: 18px;
+    font-family: "Maurea-Light";
+  }
+
+
+ /* ===========================
+    ======== FEATURES =========
+    ============================ */
+  .features {
+    padding: 30px 0;
+    position: relative;
+  }
+  .features .info {
+    margin: 0 auto;
+    background: #F8F9FA;
+    padding: 40px;
+  }
+  .features .info h2 {
+    font-size: 26px;
+    padding-bottom: 20px;
+  }
+  .features .info p {
+    font-size: 18px;
+    font-family: "Maurea-Light";
+    padding-bottom: 10px;
+  }
+  .features .info .rest {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 40px;
+    width: 100%;
+  }
+  .features .info .rest ul {
+    list-style: inherit;
+  }
+  .features .info .rest ul li {
+    margin: 10px 0;
+    font-size: 18px;
+    font-family: "Maurea-Light";
+  }
+
+  /* ===========================
+    ======== INFO =========
+    ============================ */
+
+.other {
+    padding: 0 0 50px;
+    position: relative;
+}
+.other .details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.other .details .img,
+.other .details .img img {
+    width: 100%;
+    height: 100%;
+}
+.other .details h2 {
+    font-size: 26px;
+    padding-bottom: 20px;
+}
+.other .details ul {
+    list-style: inherit;
+  }
+  .other .details ul li {
+    margin: 10px 0;
+    font-size: 18px;
+    font-family: "Maurea-Light";
+  }
+  .other .details .link {
+    margin-top: 40px;
+  }
+  .other .details a {
+    background: var(--first-color);
+    color: var(--third-color);
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    border-color: transparent;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 40px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+
+ /* ===========================
+    ======== CONTACT =========
+    ============================ */
+.contact {
+    padding: 0 0 50px;
+    position: relative;
+    text-align: left;
+}
+.contact h2 {
+    font-size: 26px;
+    padding-bottom: 20px;
+}
+
+  .contact .formbox {
+    width: 80%;
+   }
+   .contact .formbox form {
+    width: 100%;
+   }
+   .contact .formbox form .input-box {
+    margin-bottom: 24px;
+    width: 100%;
+    text-align: left;
+   }
+   .contact .formbox form .input-box p {
+    font-size: 16px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 0 !important;
+    font-family: "Maurea-Light";
+    font-weight: 400;
+   }
+   .contact .formbox form .input-box span {
+    font-size: 12px;
+   }
+   .contact .formbox form .input-box input,
+   .contact .formbox form .input-box select {
+    width: 100%;
+    margin-bottom: 0px;
+    padding: 10px 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #D2D2D2;
+    background-color: var(--third-color);
+    outline: none;
+   }
+   input::-webkit-outer-spin-button,
+   input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+   }
+   .contact .formbox form .input-boxs {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+   }
+   .contact .formbox form .input-boxs input {
+    background: var(--first-color);
+    color: var(--third-color);
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    border-color: transparent;
+    outline: none;
+    padding: 15px 40px;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 0;
+    transition: all 0.3s ease-in-out;
+    margin-top: 30px;
+   }
+   .contact .formbox form .input-boxs input:hover {
+    opacity: 0.9;
+   }
+   .contact .combin {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+  }
+  .iti {
+    width: 100% !important;
+  }
+  #contact {
+    scroll-margin-top: 100px;
+  }
+  .form-control {
+    height: 100% !important;
+    padding: 10px 15px !important;
+    width: 100%;
+  }
+
+
+  .disclamer {
+    padding: 0 0 30px;
+    font-family: "Maurea-Light";
+  }
+  .disclamer span {
+    font-size: 12px;
+  }
+  .disclamer p {
+    padding-top: 5px;
+    font-size: 16px;
+  }
+
+  .live {
+    width: 200px;
+    margin-bottom: 10px;
+  }
+
+
+
+
+  /* ===========================
+    ======== FOOTER =========
+    ============================ */
+
+.footer {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .footer p {
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 2;
+    color: #7f7f7f;
+  }
+  
+  @media screen and (max-width: 991px) {
+    .webinar-header .container {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+    .webinar-header .header-divi {
+        grid-template-columns: 1fr;
+        padding-top: 30%;
+    }
+    .webinar-header .header-divi .details h1 {
+        font-size: 28px;
+    }
+    .webinar-header .header-divi .details h3 {
+        font-size: 16px;
+    }
+    .webinar-header .header-divi .details p {
+        font-size: 14px;
+    }
+    .features .info .rest {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .other .details,
+    .contact .combin {
+        grid-template-columns: 1fr;
+    }
+    .other .details ul {
+        padding-left: 24px;
+    }
+    .other .details .link {
+        margin-bottom: 24px;
+    }
+    .contact .formbox {
+        width: 100%;
+    }
+    .live {
+      width: 150px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .footer p {
+      font-size: 11px;
+    }
+  }
